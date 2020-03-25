@@ -120,3 +120,24 @@ export const getCorrectAnswerProg = (txt) => {
   }
   return String(serchInteger);
 };
+
+export const toAskPrime = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+const isPrime = (num) => {
+  if (num <= 1) {
+    return false;
+  }
+  let div = 2;
+  while (div < num) {
+    if (num % div === 0) {
+      return false;
+    }
+    div += 1;
+  }
+  return true;
+};
+
+export const getCorrectAnswerPrime = (number) => {
+  const resultPrime = isPrime(number) ? 'yes' : 'no';
+  return resultPrime;
+};
