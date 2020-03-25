@@ -63,3 +63,26 @@ export const getCorrectAnswerCalc = (txt) => {
   const secEl = Number(words[2]);
   return operations(firstEl, words[1], secEl);
 };
+
+export const toAskGcd = 'Find the greatest common divisor of given numbers.';
+
+export const progQuestionGcd = () => {
+  const firstNode = getRndInteger(minValue, maxValue);
+  const secondNode = getRndInteger(minValue, maxValue);
+  return (`${firstNode} ${secondNode}`);
+};
+
+const gcd = (a, b) => {
+  if (b === 0) {
+    return a;
+  }
+  return gcd(b, a % b);
+};
+
+export const getCorrectAnswerGcd = (txt) => {
+  const nodes = txt.split(' ');
+  const fNode = Number(nodes[0]);
+  const sNode = Number(nodes[1]);
+  const res = String(gcd(fNode, sNode));
+  return res;
+};
