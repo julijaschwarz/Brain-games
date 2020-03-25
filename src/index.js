@@ -86,3 +86,37 @@ export const getCorrectAnswerGcd = (txt) => {
   const res = String(gcd(fNode, sNode));
   return res;
 };
+
+export const toAskProg = 'What number is missing in the progression?';
+
+export const progQuestionProg = () => {
+  const arr = [getRndInteger(minValue, maxValue)];
+  const minStep = 2;
+  const maxStep = 10;
+  const secretElement = getRndInteger(0, 9);
+  const step = getRndInteger(minStep, maxStep);
+  for (let acc = 0; acc < 9; acc += 1) {
+    const element = arr[arr.length - 1] + step;
+    arr.push(element);
+  }
+  arr[secretElement] = '..';
+  return arr.join(' ');
+};
+
+export const getCorrectAnswerProg = (txt) => {
+  const items = txt.split(' ');
+  let serchInteger = 0;
+  for (let i = 0; i < items.length; i += 1) {
+    if (items[i] === '..' && i < 2) {
+      const stepProgression = Number(items[i + 3]) - Number(items[i + 2]);
+      serchInteger = Number(items[i + 1]) - Number(stepProgression);
+      break;
+    }
+    if (items[i] === '..' && i > 1) {
+      const stepProgression = Number(items[1]) - Number(items[0]);
+      serchInteger = Number(items[i - 1]) + Number(stepProgression);
+      break;
+    }
+  }
+  return String(serchInteger);
+};
