@@ -93,7 +93,9 @@ export const progQuestionProg = () => {
   const arr = [getRndInteger(minValue, maxValue)];
   const minStep = 2;
   const maxStep = 10;
-  const secretElement = getRndInteger(0, 9);
+  const minIndexOfSecretElement = 2;
+  const maxIndexOfSecretElement = 9;
+  const secretElement = getRndInteger(minIndexOfSecretElement, maxIndexOfSecretElement);
   const step = getRndInteger(minStep, maxStep);
   for (let acc = 0; acc < 9; acc += 1) {
     const element = arr[arr.length - 1] + step;
