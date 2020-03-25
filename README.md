@@ -5,3 +5,5 @@
 ![Lint](https://github.com/julijaschwarz/frontend-project-lvl1/workflows/Lint/badge.svg?branch=master)
 
 [![asciicast](https://asciinema.org/a/fJX4Cso45aW6UFv1a4nJoQIiy.svg)](https://asciinema.org/a/fJX4Cso45aW6UFv1a4nJoQIiy)
+
+[![asciicast](https://asciinema.org/a/S2KEkwRFngx5PyWMcDZ069dg5.svg)](https://asciinema.org/a/S2KEkwRFngx5PyWMcDZ069dg5)
