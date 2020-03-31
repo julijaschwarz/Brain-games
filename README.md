@@ -7,13 +7,17 @@
 Open the console and execute the following commands:
 
 git clone https://github.com/julijaschwarz/frontend-project-lvl1.git .
+
 make install
+
 make publish
+
 npm link
 
 ### Yahoo! Now you can play)
 
 How? Easy!
+
 Type the name of any game and press Enter.
 
 > **brain-even** - user is shown a random number. And he needs to answer **yes** if the number is even, or **no** if it is odd;
