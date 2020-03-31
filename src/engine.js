@@ -1,15 +1,16 @@
 import readlineSync from 'readline-sync';
-import { greeting } from './index.js';
 
-const toGame = (ask, progQuestion, corAnswer) => {
-  const toGreet = greeting();
-  console.log(ask);
+const toGame = (task, getQuestion, getCorrectAnswer) => {
+  console.log('Welcome to the Brain Games!');
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}`);
+  console.log(task);
   let acc = 0;
   while (acc < 3) {
-    const question = progQuestion();
+    const question = getQuestion();
     console.log(`Question: ${question}`);
     const usersAnswer = readlineSync.question('Your answer: ');
-    const correctAnswer = corAnswer(question);
+    const correctAnswer = getCorrectAnswer(question);
     if (usersAnswer === correctAnswer) {
       console.log('Correct!');
       acc += 1;
@@ -19,9 +20,9 @@ const toGame = (ask, progQuestion, corAnswer) => {
     }
   }
   if (acc === 3) {
-    console.log(`Congratulations, ${toGreet}!`);
+    console.log(`Congratulations, ${userName}!`);
   } else {
-    console.log(`Let's try again, ${toGreet}!`);
+    console.log(`Let's try again, ${userName}!`);
   }
 };
 

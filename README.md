@@ -1,5 +1,34 @@
 # frontend-project-lvl1
 
+## Brain-games is a simple set of terminal mini-games.
+
+### HOW install brain-games: brain-even, brain-calc, brain-gcd, brain-progression, brain-prime?
+
+Open the console and execute the following commands:
+
+git clone https://github.com/julijaschwarz/frontend-project-lvl1.git .
+make install
+make publish
+npm link
+
+### Yahoo! Now you can play)
+
+How? Easy!
+Type the name of any game and press Enter.
+
+> **brain-even** - user is shown a random number. And he needs to answer **yes** if the number is even, or **no** if it is odd;
+
+> **brain-calс** - user is shown a random mathematical expression, for example 35 + 16, which needs to be calculated and written down the correct answer;
+
+> **brain-gcd** - two random numbers are shown to the user, for example, 25 50. The user must calculate and enter the largest common divisor of these numbers;
+
+> **brain-progression** - the player is shown a series of numbers forming an arithmetic progression in which one of the numbers is replaced by two points. The player must determine this number;
+
+> **brain-prime** - user is shown a random number. And he needs to answer **yes** if the number is prime, or **no** if not.
+
+### Video with examples of installing and running games below.
+
+
 <a href="https://codeclimate.com/github/julijaschwarz/frontend-project-lvl1/maintainability"><img src="https://api.codeclimate.com/v1/badges/3c260d4b1e56da011840/maintainability" /></a>
 
 ![Lint](https://github.com/julijaschwarz/frontend-project-lvl1/workflows/Lint/badge.svg?branch=master)
