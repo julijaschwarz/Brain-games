@@ -1,12 +1,12 @@
 import toGame from '../engine.js';
-import { minValue, maxValue, getRndInteger } from '../index.js';
+import { minValue, maxValue, generateRandomInteger } from '../utils.js';
 
 const taskGcd = 'Find the greatest common divisor of given numbers.';
 
 const getQuestionGcd = () => {
-  const firstNode = getRndInteger(minValue, maxValue);
-  const secondNode = getRndInteger(minValue, maxValue);
-  return (`${firstNode} ${secondNode}`);
+  const firstRandomNode = generateRandomInteger(minValue, maxValue);
+  const secondRandomNode = generateRandomInteger(minValue, maxValue);
+  return (`${firstRandomNode} ${secondRandomNode}`);
 };
 
 const gcd = (a, b) => {
@@ -18,10 +18,10 @@ const gcd = (a, b) => {
 
 const getCorrectAnswerGcd = (txt) => {
   const nodes = txt.split(' ');
-  const fNode = Number(nodes[0]);
-  const sNode = Number(nodes[1]);
-  const res = String(gcd(fNode, sNode));
-  return res;
+  const firstNode = Number(nodes[0]);
+  const secondNode = Number(nodes[1]);
+  const result = String(gcd(firstNode, secondNode));
+  return result;
 };
 
 const toPlayGcd = () => toGame(taskGcd, getQuestionGcd, getCorrectAnswerGcd);

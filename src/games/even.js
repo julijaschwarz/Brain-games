@@ -1,11 +1,11 @@
 import toGame from '../engine.js';
-import { minValue, maxValue, getRndInteger } from '../index.js';
+import { minValue, maxValue, generateRandomInteger } from '../utils.js';
 
 const taskEven = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 export const getQuestionEven = () => {
-  const randomNumber = getRndInteger(minValue, maxValue);
-  return randomNumber;
+  const randomInteger = generateRandomInteger(minValue, maxValue);
+  return randomInteger;
 };
 
 const isEven = (num) => ((num % 2) === 0);

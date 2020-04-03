@@ -5,21 +5,21 @@ const toGame = (task, getQuestion, getCorrectAnswer) => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}`);
   console.log(task);
+  const roundCount = 3;
   let acc = 0;
-  while (acc < 3) {
+  for (acc; acc < roundCount; acc += 1) {
     const question = getQuestion();
     console.log(`Question: ${question}`);
     const usersAnswer = readlineSync.question('Your answer: ');
     const correctAnswer = getCorrectAnswer(question);
     if (usersAnswer === correctAnswer) {
       console.log('Correct!');
-      acc += 1;
     } else {
       console.log(`"${usersAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".`);
       break;
     }
   }
-  if (acc === 3) {
+  if (acc === roundCount) {
     console.log(`Congratulations, ${userName}!`);
   } else {
     console.log(`Let's try again, ${userName}!`);

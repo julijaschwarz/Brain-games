@@ -1,16 +1,16 @@
 import toGame from '../engine.js';
-import { minValue, maxValue, getRndInteger } from '../index.js';
+import { minValue, maxValue, generateRandomInteger } from '../utils.js';
 
 const taskProg = 'What number is missing in the progression?';
 
 const getQuestionProgression = () => {
-  const arr = [getRndInteger(minValue, maxValue)];
+  const arr = [generateRandomInteger(minValue, maxValue)];
   const minStep = 2;
   const maxStep = 10;
   const minIndexOfSecretElement = 0;
   const maxIndexOfSecretElement = 9;
-  const secretElement = getRndInteger(minIndexOfSecretElement, maxIndexOfSecretElement);
-  const step = getRndInteger(minStep, maxStep);
+  const secretElement = generateRandomInteger(minIndexOfSecretElement, maxIndexOfSecretElement);
+  const step = generateRandomInteger(minStep, maxStep);
   for (let acc = 0; acc < 9; acc += 1) {
     const element = arr[arr.length - 1] + step;
     arr.push(element);
