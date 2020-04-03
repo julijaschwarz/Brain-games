@@ -16,7 +16,7 @@ const getQuestionCalc = () => {
 };
 
 const getArithmeticOperation = (fOperand, operator, sOperand) => {
-  let res = 0;
+  let res;
   switch (operator) {
     case '+':
       res = fOperand + sOperand;
@@ -40,6 +40,12 @@ const getCorrectAnswerCalc = (txt) => {
   return getArithmeticOperation(firstEl, words[1], secEl);
 };
 
-const toPlayCalc = () => toGame(taskCalc, getQuestionCalc, getCorrectAnswerCalc);
+const getQuestionAndAnswerCalc = () => {
+  const question = getQuestionCalc();
+  const answer = getCorrectAnswerCalc(question);
+  return [question, answer];
+};
+
+const toPlayCalc = () => toGame(taskCalc, getQuestionAndAnswerCalc);
 
 export default toPlayCalc;

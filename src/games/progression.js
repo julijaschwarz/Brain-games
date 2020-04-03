@@ -19,7 +19,7 @@ const getQuestionProgression = () => {
   return arr.join(' ');
 };
 
-const getCorrectAnswerProgr = (txt) => {
+const getCorrectAnswerProgression = (txt) => {
   const items = txt.split(' ');
   let serchInteger = 0;
   for (let i = 0; i < items.length; i += 1) {
@@ -37,6 +37,12 @@ const getCorrectAnswerProgr = (txt) => {
   return String(serchInteger);
 };
 
-const toPlayProgression = () => toGame(taskProg, getQuestionProgression, getCorrectAnswerProgr);
+const getQuestionAndAnswerProgression = () => {
+  const question = getQuestionProgression();
+  const answer = getCorrectAnswerProgression(question);
+  return [question, answer];
+};
+
+const toPlayProgression = () => toGame(taskProg, getQuestionAndAnswerProgression);
 
 export default toPlayProgression;

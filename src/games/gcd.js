@@ -24,6 +24,12 @@ const getCorrectAnswerGcd = (txt) => {
   return result;
 };
 
-const toPlayGcd = () => toGame(taskGcd, getQuestionGcd, getCorrectAnswerGcd);
+const getQuestionAndAnswerGcd = () => {
+  const question = getQuestionGcd();
+  const answer = getCorrectAnswerGcd(question);
+  return [question, answer];
+};
+
+const toPlayGcd = () => toGame(taskGcd, getQuestionAndAnswerGcd);
 
 export default toPlayGcd;

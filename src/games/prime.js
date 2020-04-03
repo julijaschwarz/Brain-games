@@ -22,6 +22,12 @@ const getCorrectAnswerPrime = (number) => {
   return resultPrime;
 };
 
-const toPlayPrimeNumber = () => toGame(taskPrime, getQuestionEven, getCorrectAnswerPrime);
+const getQuestionAndAnswerPrime = () => {
+  const question = getQuestionEven();
+  const answer = getCorrectAnswerPrime(question);
+  return [question, answer];
+};
+
+const toPlayPrimeNumber = () => toGame(taskPrime, getQuestionAndAnswerPrime);
 
 export default toPlayPrimeNumber;

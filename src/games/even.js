@@ -15,8 +15,12 @@ const check = (number) => {
   return result;
 };
 
-const getCorrectAnswerEven = (num) => check(num);
+const getQuestionAndAnswerEven = () => {
+  const question = getQuestionEven();
+  const answer = check(question);
+  return [question, answer];
+};
 
-const toPlayEvenNumber = () => toGame(taskEven, getQuestionEven, getCorrectAnswerEven);
+const toPlayEvenNumber = () => toGame(taskEven, getQuestionAndAnswerEven);
 
 export default toPlayEvenNumber;
