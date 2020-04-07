@@ -5,8 +5,6 @@ import { minValue, maxValue, generateRandomInteger } from '../utils.js';
 const taskCalc = 'What is the result of the expression?';
 
 const operations = ['+', '-', '*'];
-const generateRandomOperation = (arr) => arr[Math.floor(Math.random() * arr.length)];
-
 
 const getQuestionCalc = () => {
   const firstElement = generateRandomInteger(minValue, maxValue);
@@ -21,7 +19,7 @@ const getCorrectAnswerCalc = (txt) => {
   const words = txt.split(' ');
   const fOperand = Number(words[0]);
   const sOperand = Number(words[2]);
-  let operator = words[1];
+  const operator = words[1];
   let result;
   switch (operator) {
     case '+':
