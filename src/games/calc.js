@@ -11,33 +11,32 @@ const generateRandomOperation = (arr) => arr[Math.floor(Math.random() * arr.leng
 const getQuestionCalc = () => {
   const firstElement = generateRandomInteger(minValue, maxValue);
   const secondElement = generateRandomInteger(minValue, maxValue);
-  const operatorElement = generateRandomOperation(operations);
+  const minIndexOperations = 0;
+  const maxIndexOperations = operations.length - 1;
+  const operatorElement = operations[generateRandomInteger(minIndexOperations, maxIndexOperations)];
   return (`${firstElement} ${operatorElement} ${secondElement}`);
-};
-
-const getArithmeticOperation = (fOperand, operator, sOperand) => {
-  let res;
-  switch (operator) {
-    case '+':
-      res = fOperand + sOperand;
-      break;
-    case '-':
-      res = fOperand - sOperand;
-      break;
-    case '*':
-      res = fOperand * sOperand;
-      break;
-    default:
-      return null;
-  }
-  return String(res);
 };
 
 const getCorrectAnswerCalc = (txt) => {
   const words = txt.split(' ');
-  const firstEl = Number(words[0]);
-  const secEl = Number(words[2]);
-  return getArithmeticOperation(firstEl, words[1], secEl);
+  const fOperand = Number(words[0]);
+  const sOperand = Number(words[2]);
+  let operator = words[1];
+  let result;
+  switch (operator) {
+    case '+':
+      result = fOperand + sOperand;
+      break;
+    case '-':
+      result = fOperand - sOperand;
+      break;
+    case '*':
+      result = fOperand * sOperand;
+      break;
+    default:
+      return null;
+  }
+  return String(result);
 };
 
 const getQuestionAndAnswerCalc = () => {

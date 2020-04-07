@@ -9,18 +9,18 @@ const getQuestionGcd = () => {
   return (`${firstRandomNode} ${secondRandomNode}`);
 };
 
-const gcd = (a, b) => {
-  if (b === 0) {
-    return a;
+const findGreatestCommonDivider = (firstInteger, secondInteger) => {
+  if (secondInteger === 0) {
+    return firstInteger;
   }
-  return gcd(b, a % b);
+  return findGreatestCommonDivider(secondInteger, firstInteger % secondInteger);
 };
 
 const getCorrectAnswerGcd = (txt) => {
   const nodes = txt.split(' ');
   const firstNode = Number(nodes[0]);
   const secondNode = Number(nodes[1]);
-  const result = String(gcd(firstNode, secondNode));
+  const result = String(findGreatestCommonDivider(firstNode, secondNode));
   return result;
 };
 

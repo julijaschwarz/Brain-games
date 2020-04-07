@@ -3,11 +3,6 @@ import { minValue, maxValue, generateRandomInteger } from '../utils.js';
 
 const taskEven = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-export const getQuestionEven = () => {
-  const randomInteger = generateRandomInteger(minValue, maxValue);
-  return randomInteger;
-};
-
 const isEven = (num) => ((num % 2) === 0);
 
 const check = (number) => {
@@ -16,7 +11,7 @@ const check = (number) => {
 };
 
 const getQuestionAndAnswerEven = () => {
-  const question = getQuestionEven();
+  const question = generateRandomInteger(minValue, maxValue);
   const answer = check(question);
   return [question, answer];
 };

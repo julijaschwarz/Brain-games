@@ -1,5 +1,5 @@
 import toGame from '../engine.js';
-import { getQuestionEven } from './even.js';
+import { minValue, maxValue, generateRandomInteger } from '../utils.js';
 
 const taskPrime = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
@@ -23,7 +23,7 @@ const getCorrectAnswerPrime = (number) => {
 };
 
 const getQuestionAndAnswerPrime = () => {
-  const question = getQuestionEven();
+  const question = generateRandomInteger(minValue, maxValue);
   const answer = getCorrectAnswerPrime(question);
   return [question, answer];
 };
