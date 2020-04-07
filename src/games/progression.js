@@ -22,16 +22,16 @@ const getQuestionProgression = () => {
 
 const getCorrectAnswerProgression = (txt) => {
   const items = txt.split(' ');
-  let serchInteger = 0;
-  for (let i = 0; i < items.length; i += 1) {
-    if (items[i] === '..' && i < 2) {
-      const stepProgression = Number(items[i + 3]) - Number(items[i + 2]);
-      serchInteger = Number(items[i + 1]) - Number(stepProgression);
-      break;
-    }
-    if (items[i] === '..' && i > 1) {
+  let serchInteger;
+  if (items[0] === '..') {
+    const stepProgression = Number(items[2]) - Number(items[1]);
+    serchInteger = Number(items[1]) - Number(stepProgression);
+    return String(serchInteger);
+  }
+  for (let i = 1; i < items.length; i += 1) {
+    if (items[i] === '..') {
       const stepProgression = Number(items[1]) - Number(items[0]);
-      serchInteger = Number(items[i - 1]) + Number(stepProgression);
+      serchInteger = Number(items[0]) + stepProgression * i;
       break;
     }
   }
