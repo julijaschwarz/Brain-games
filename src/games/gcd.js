@@ -9,11 +9,11 @@ const getQuestionGcd = () => {
   return (`${firstRandomNode} ${secondRandomNode}`);
 };
 
-const findGreatestCommonDivider = (firstInteger, secondInteger) => {
-  if (secondInteger === 0) {
-    return firstInteger;
+const findGreatestCommonDivider = (firstElement, secondElement) => {
+  if (secondElement === 0) {
+    return firstElement;
   }
-  return findGreatestCommonDivider(secondInteger, firstInteger % secondInteger);
+  return findGreatestCommonDivider(secondElement, firstElement % secondElement);
 };
 
 const getCorrectAnswerGcd = (txt) => {

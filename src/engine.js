@@ -6,25 +6,18 @@ const toGame = (task, getQuestionAndAnswer) => {
   console.log(`Hello, ${userName}`);
   console.log(task);
   const roundCount = 3;
-  let acc = 0;
-  for (acc; acc < roundCount; acc += 1) {
-    const questionAndAnswer = getQuestionAndAnswer();
-    const question = questionAndAnswer[0];
+  for (let count = 0; count < roundCount; count += 1) {
+    const [question, answer] = getQuestionAndAnswer();
     console.log(`Question: ${question}`);
     const usersAnswer = readlineSync.question('Your answer: ');
-    const correctAnswer = questionAndAnswer[1];
-    if (usersAnswer === correctAnswer) {
+    if (usersAnswer === answer) {
       console.log('Correct!');
     } else {
-      console.log(`"${usersAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".`);
-      break;
+      console.log(`"${usersAnswer}" is wrong answer ;(. Correct answer was "${answer}".`);
+      return console.log(`Let's try again, ${userName}!`);
     }
   }
-  if (acc === roundCount) {
-    console.log(`Congratulations, ${userName}!`);
-  } else {
-    console.log(`Let's try again, ${userName}!`);
-  }
+  return console.log(`Congratulations, ${userName}!`);
 };
 
 export default toGame;

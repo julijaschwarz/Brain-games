@@ -5,14 +5,9 @@ const taskEven = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const isEven = (num) => ((num % 2) === 0);
 
-const check = (number) => {
-  const result = isEven(number) ? 'yes' : 'no';
-  return result;
-};
-
 const getQuestionAndAnswerEven = () => {
   const question = generateRandomInteger(minValue, maxValue);
-  const answer = check(question);
+  const answer = isEven(question) ? 'yes' : 'no';
   return [question, answer];
 };
 
