@@ -1,35 +1,21 @@
 import toGame from '../engine.js';
-import { minValue, maxValue, generateRandomInteger } from '../utils.js';
+import { minValue, maxValue, generateRandomNumber } from '../utils.js';
 
-const taskGcd = 'Find the greatest common divisor of given numbers.';
+const task = 'Find the greatest common divisor of given numbers.';
 
-const getQuestionGcd = () => {
-  const firstRandomNode = generateRandomInteger(minValue, maxValue);
-  const secondRandomNode = generateRandomInteger(minValue, maxValue);
-  return (`${firstRandomNode} ${secondRandomNode}`);
-};
-
-const findGreatestCommonDivider = (firstElement, secondElement) => {
-  if (secondElement === 0) {
-    return firstElement;
+const findGreatestCommonDivider = (firstNumber, secondNumber) => {
+  if (secondNumber === 0) {
+    return firstNumber;
   }
-  return findGreatestCommonDivider(secondElement, firstElement % secondElement);
+  return findGreatestCommonDivider(secondNumber, firstNumber % secondNumber);
 };
 
-const getCorrectAnswerGcd = (txt) => {
-  const nodes = txt.split(' ');
-  const firstNode = Number(nodes[0]);
-  const secondNode = Number(nodes[1]);
-  const result = String(findGreatestCommonDivider(firstNode, secondNode));
-  return result;
+const getGcd = () => {
+  const firstRandomNumber = generateRandomNumber(minValue, maxValue);
+  const secondRandomNumber = generateRandomNumber(minValue, maxValue);
+  const pairOfNumbers = `${firstRandomNumber} ${secondRandomNumber}`;
+  const greatestDivisor = String(findGreatestCommonDivider(firstRandomNumber, secondRandomNumber));
+  return [pairOfNumbers, greatestDivisor];
 };
 
-const getQuestionAndAnswerGcd = () => {
-  const question = getQuestionGcd();
-  const answer = getCorrectAnswerGcd(question);
-  return [question, answer];
-};
-
-const toPlayGcd = () => toGame(taskGcd, getQuestionAndAnswerGcd);
-
-export default toPlayGcd;
+export default () => toGame(task, getGcd);

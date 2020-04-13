@@ -1,49 +1,25 @@
 import toGame from '../engine.js';
-import { minValue, maxValue, generateRandomInteger } from '../utils.js';
+import { minValue, maxValue, generateRandomNumber } from '../utils.js';
 
-const taskProg = 'What number is missing in the progression?';
+const task = 'What number is missing in the progression?';
 
-const getQuestionProgression = () => {
+const getProgression = () => {
   const progression = [];
   const minStep = 2;
   const maxStep = 10;
-  const step = generateRandomInteger(minStep, maxStep);
-  const start = generateRandomInteger(minValue, maxValue);
+  const step = generateRandomNumber(minStep, maxStep);
+  const start = generateRandomNumber(minValue, maxValue);
   for (let i = 0; i < 10; i += 1) {
-    const element = start + step * i;
-    progression.push(element);
+    const value = start + step * i;
+    progression.push(value);
   }
-  const minIndexOfSecretElement = 0;
-  const maxIndexOfSecretElement = 9;
-  const secretElement = generateRandomInteger(minIndexOfSecretElement, maxIndexOfSecretElement);
-  progression[secretElement] = '..';
-  return progression.join(' ');
+  const minIndexOfHiddenNumber = 0;
+  const maxIndexOfHiddenNumber = 9;
+  const indexOfHiddenNumber = generateRandomNumber(minIndexOfHiddenNumber, maxIndexOfHiddenNumber);
+  const hiddenNumber = String(progression[indexOfHiddenNumber]);
+  progression[indexOfHiddenNumber] = '..';
+  const progressionWithHiddenNumber = progression.join(' ');
+  return [progressionWithHiddenNumber, hiddenNumber];
 };
 
-const getCorrectAnswerProgression = (txt) => {
-  const items = txt.split(' ');
-  let serchInteger;
-  if (items[0] === '..') {
-    const stepProgression = Number(items[2]) - Number(items[1]);
-    serchInteger = Number(items[1]) - Number(stepProgression);
-    return String(serchInteger);
-  }
-  for (let i = 1; i < items.length; i += 1) {
-    if (items[i] === '..') {
-      const stepProgression = Number(items[1]) - Number(items[0]);
-      serchInteger = Number(items[0]) + stepProgression * i;
-      break;
-    }
-  }
-  return String(serchInteger);
-};
-
-const getQuestionAndAnswerProgression = () => {
-  const question = getQuestionProgression();
-  const answer = getCorrectAnswerProgression(question);
-  return [question, answer];
-};
-
-const toPlayProgression = () => toGame(taskProg, getQuestionAndAnswerProgression);
-
-export default toPlayProgression;
+export default () => toGame(task, getProgression);

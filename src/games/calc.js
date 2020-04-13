@@ -1,38 +1,37 @@
 import toGame from '../engine.js';
-import { minValue, maxValue, generateRandomInteger } from '../utils.js';
+import { minValue, maxValue, generateRandomNumber } from '../utils.js';
 
-
-const taskCalc = 'What is the result of the expression?';
+const task = 'What is the result of the expression?';
 
 const operations = ['+', '-', '*'];
 
-const getCalc = () => {
-  const firstElement = generateRandomInteger(minValue, maxValue);
-  const secondElement = generateRandomInteger(minValue, maxValue);
-  const minIndexOperations = 0;
-  const maxIndexOperations = operations.length - 1;
-  const operator = operations[generateRandomInteger(minIndexOperations, maxIndexOperations)];
-  const expression = `${firstElement} ${operator} ${secondElement}`;
+const calculate = (foperand, sOperand, operatorOfExpression) => {
   let result;
-  switch (operator) {
+  switch (operatorOfExpression) {
     case '+':
-      result = firstElement + secondElement;
+      result = foperand + sOperand;
       break;
     case '-':
-      result = firstElement - secondElement;
+      result = foperand - sOperand;
       break;
     case '*':
-      result = firstElement * secondElement;
+      result = foperand * sOperand;
       break;
     default:
       return null;
   }
-  const resultExpression = String(result);
+  return result;
+};
+
+const getCalc = () => {
+  const firstNumber = generateRandomNumber(minValue, maxValue);
+  const secondNumber = generateRandomNumber(minValue, maxValue);
+  const minIndexOperations = 0;
+  const maxIndexOperations = operations.length - 1;
+  const operator = operations[generateRandomNumber(minIndexOperations, maxIndexOperations)];
+  const expression = `${firstNumber} ${operator} ${secondNumber}`;
+  const resultExpression = String(calculate(firstNumber, secondNumber, operator));
   return [expression, resultExpression];
 };
 
-const getQuestionAndAnswerCalc = () => getCalc();
-
-const toPlayCalc = () => toGame(taskCalc, getQuestionAndAnswerCalc);
-
-export default toPlayCalc;
+export default () => toGame(task, getCalc);

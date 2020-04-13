@@ -1,33 +1,26 @@
 import toGame from '../engine.js';
-import { minValue, maxValue, generateRandomInteger } from '../utils.js';
+import { minValue, maxValue, generateRandomNumber } from '../utils.js';
 
-const taskPrime = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const isPrime = (num) => {
-  if (num <= 1) {
+const isPrime = (number) => {
+  if (number <= 1) {
     return false;
   }
-  let div = 2;
-  while (div < num) {
-    if (num % div === 0) {
+  let divider = 2;
+  while (divider < number) {
+    if (number % divider === 0) {
       return false;
     }
-    div += 1;
+    divider += 1;
   }
   return true;
 };
 
-const getCorrectAnswerPrime = (number) => {
-  const resultPrime = isPrime(number) ? 'yes' : 'no';
-  return resultPrime;
-};
-
-const getQuestionAndAnswerPrime = () => {
-  const question = generateRandomInteger(minValue, maxValue);
-  const answer = getCorrectAnswerPrime(question);
+const getQuestionAnswer = () => {
+  const question = generateRandomNumber(minValue, maxValue);
+  const answer = isPrime(question) ? 'yes' : 'no';
   return [question, answer];
 };
 
-const toPlayPrimeNumber = () => toGame(taskPrime, getQuestionAndAnswerPrime);
-
-export default toPlayPrimeNumber;
+export default () => toGame(task, getQuestionAnswer);
