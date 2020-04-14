@@ -1,7 +1,7 @@
 import toGame from '../engine.js';
 import { minValue, maxValue, generateRandomNumber } from '../utils.js';
 
-const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (number) => {
   if (number <= 1) {
@@ -23,4 +23,4 @@ const getQuestionAnswer = () => {
   return [question, answer];
 };
 
-export default () => toGame(task, getQuestionAnswer);
+export default () => toGame(description, getQuestionAnswer);

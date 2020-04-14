@@ -1,7 +1,7 @@
 import toGame from '../engine.js';
 import { minValue, maxValue, generateRandomNumber } from '../utils.js';
 
-const task = 'Answer "yes" if the number is even, otherwise answer "no".';
+const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const isEven = (num) => ((num % 2) === 0);
 
@@ -11,4 +11,4 @@ const getQuestionAnswer = () => {
   return [question, answer];
 };
 
-export default () => toGame(task, getQuestionAnswer);
+export default () => toGame(description, getQuestionAnswer);

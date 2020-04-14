@@ -1,21 +1,21 @@
 import toGame from '../engine.js';
 import { minValue, maxValue, generateRandomNumber } from '../utils.js';
 
-const task = 'What is the result of the expression?';
+const description = 'What is the result of the expression?';
 
 const operations = ['+', '-', '*'];
 
-const calculate = (foperand, sOperand, operatorOfExpression) => {
+const calculate = (firstOperand, secondOperand, operationCalculate) => {
   let result;
-  switch (operatorOfExpression) {
+  switch (operationCalculate) {
     case '+':
-      result = foperand + sOperand;
+      result = firstOperand + secondOperand;
       break;
     case '-':
-      result = foperand - sOperand;
+      result = firstOperand - secondOperand;
       break;
     case '*':
-      result = foperand * sOperand;
+      result = firstOperand * secondOperand;
       break;
     default:
       return null;
@@ -23,15 +23,15 @@ const calculate = (foperand, sOperand, operatorOfExpression) => {
   return result;
 };
 
-const getCalc = () => {
+const getQuestionAnswer = () => {
   const firstNumber = generateRandomNumber(minValue, maxValue);
   const secondNumber = generateRandomNumber(minValue, maxValue);
   const minIndexOperations = 0;
   const maxIndexOperations = operations.length - 1;
-  const operator = operations[generateRandomNumber(minIndexOperations, maxIndexOperations)];
-  const expression = `${firstNumber} ${operator} ${secondNumber}`;
-  const resultExpression = String(calculate(firstNumber, secondNumber, operator));
-  return [expression, resultExpression];
+  const operation = operations[generateRandomNumber(minIndexOperations, maxIndexOperations)];
+  const question = `${firstNumber} ${operation} ${secondNumber}`;
+  const answer = String(calculate(firstNumber, secondNumber, operation));
+  return [question, answer];
 };
 
-export default () => toGame(task, getCalc);
+export default () => toGame(description, getQuestionAnswer);
