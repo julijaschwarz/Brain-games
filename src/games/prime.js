@@ -1,4 +1,4 @@
-import toGame from '../engine.js';
+import playGame from '../engine.js';
 import { minValue, maxValue, generateRandomNumber } from '../utils.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
@@ -8,7 +8,7 @@ const isPrime = (number) => {
     return false;
   }
   let divider = 2;
-  while (divider < number) {
+  while (divider <= (number / 2)) {
     if (number % divider === 0) {
       return false;
     }
@@ -23,4 +23,4 @@ const getQuestionAnswer = () => {
   return [question, answer];
 };
 
-export default () => toGame(description, getQuestionAnswer);
+export default () => playGame(description, getQuestionAnswer);

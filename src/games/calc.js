@@ -1,4 +1,4 @@
-import toGame from '../engine.js';
+import playGame from '../engine.js';
 import { minValue, maxValue, generateRandomNumber } from '../utils.js';
 
 const description = 'What is the result of the expression?';
@@ -26,12 +26,12 @@ const calculate = (firstOperand, secondOperand, operationCalculate) => {
 const getQuestionAnswer = () => {
   const firstNumber = generateRandomNumber(minValue, maxValue);
   const secondNumber = generateRandomNumber(minValue, maxValue);
-  const minIndexOperations = 0;
-  const maxIndexOperations = operations.length - 1;
-  const operation = operations[generateRandomNumber(minIndexOperations, maxIndexOperations)];
+  const minIndexOperation = 0;
+  const maxIndexOperation = operations.length - 1;
+  const operation = operations[generateRandomNumber(minIndexOperation, maxIndexOperation)];
   const question = `${firstNumber} ${operation} ${secondNumber}`;
   const answer = String(calculate(firstNumber, secondNumber, operation));
   return [question, answer];
 };
 
-export default () => toGame(description, getQuestionAnswer);
+export default () => playGame(description, getQuestionAnswer);
