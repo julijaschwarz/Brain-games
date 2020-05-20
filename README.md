@@ -6,6 +6,7 @@
 
 Open the console and execute the following commands:
 
+```sh
 git clone https://github.com/julijaschwarz/frontend-project-lvl1.git .
 
 make install
@@ -13,6 +14,7 @@ make install
 make publish
 
 npm link
+```
 
 ### Yahoo! Now you can play)
 
