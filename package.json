@@ -2,7 +2,7 @@
   "name": "frontend-project-lvl1",
   "version": "1.0.0",
   "description": "First project by profession Frontend JS on Hexlet.io - brain-games. Brain-games is a simple set of terminal mini-games.",
-  "keywords": "hexlet, brain-games, frontend-project",
+  "keywords": ["hexlet", "brain-games", "frontend-project"],
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2"
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.3"
   }
 }
