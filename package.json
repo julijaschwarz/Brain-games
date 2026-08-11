@@ -1,24 +1,28 @@
 {
-  "name": "frontend-project-lvl1",
+  "name": "brain-games",
   "version": "1.0.0",
   "description": "First project by profession Frontend JS on Hexlet.io - brain-games. Brain-games is a simple set of terminal mini-games.",
   "keywords": ["hexlet", "brain-games", "frontend-project"],
   "main": "src/index.js",
   "scripts": {
+    "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/julijaschwarz/frontend-project-lvl1.git"
+    "url": "git+https://github.com/julijaschwarz/Brain-games.git"
   },
   "author": "Julija Schwarz",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/julijaschwarz/frontend-project-lvl1/issues",
+    "url": "https://github.com/julijaschwarz/Brain-games/issues",
     "email": "fr.schwarz@yandex.ru"
   },
-  "homepage": "https://github.com/julijaschwarz/frontend-project-lvl1#readme",
+  "homepage": "https://github.com/julijaschwarz/Brain-games#readme",
   "type": "module",
+  "engines": {
+    "node": ">=20.19"
+  },
   "bin": {
     "brain-even": "bin/brain-even.js",
     "brain-calc": "bin/brain-calc.js",
@@ -30,9 +34,8 @@
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.23.3",
-    "lodash": "^4.17.21"
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.1",
+    "globals": "^17.9.0"
   }
 }
