@@ -1,5 +1,5 @@
 {
-  "name": "brain-games",
+  "name": "@julijaschwarz/brain-games",
   "version": "1.0.0",
   "description": "First project by profession Frontend JS on Hexlet.io - brain-games. Brain-games is a simple set of terminal mini-games.",
   "keywords": ["hexlet", "brain-games", "frontend-project"],
@@ -14,6 +14,9 @@
   },
   "author": "Julija Schwarz",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "bugs": {
     "url": "https://github.com/julijaschwarz/Brain-games/issues",
     "email": "fr.schwarz@yandex.ru"
